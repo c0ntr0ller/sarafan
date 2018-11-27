@@ -1,0 +1,19 @@
+spring:
+    jpa:
+        hibernate:
+          ddl-auto: update
+        properties:
+            hibernate:
+                temp:
+                  use_jdbc_metadata_defaults: false
+                show_sql: true
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+        generate-ddl: true
+        database: postgresql
+    datasource:
+#        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost/sarafan
+        username: admin
+        password: q1w2e3
