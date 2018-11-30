@@ -24,7 +24,7 @@ security:
   oauth2:
     client:
       clientId: 578485243240-k48i80t9tj2h8r6s8tmoitg1e9pm154f.apps.googleusercontent.com
-      clientSecret: MDAa7Bdp7j8DX2Jugs75rccS
+      clientSecret: ${clientSecret}
       authentication-scheme: form
       scope: openid,email,profile
       access-token-uri: https://www.googleapis.com/oauth2/v4/token
