@@ -14,10 +14,14 @@ import java.util.HashMap;
 public class MainController {
     @GetMapping
     public String main(Model model, @AuthenticationPrincipal User user){
+
         final HashMap<Object, Object> data = new HashMap<>();
+
         data.put("profile", user);
         data.put("messages", null);
-        model.addAttribute("frondendData", data);
-        return "main";
+
+        model.addAttribute("frontendData", data);
+
+        return "index";
     }
 }

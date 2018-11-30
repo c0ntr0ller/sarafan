@@ -95,13 +95,6 @@ Vue.component('messages-list',{
             '<message-form :messages="messages" :messageAttr="message"/>' +
             '<message-row v-for="message in messages" :key="message.id" :message="message" :messages="messages" :editMethod="editMethod"/>' +
         '</div>',
-    created: function() {
-        messageApi.get().then(result =>
-            result.json().then(data =>
-                data.forEach(message => this.messages.push(message))
-            )
-        )
-    },
     methods: {
         editMethod: function (message) {
             this.message = message;
@@ -111,8 +104,18 @@ Vue.component('messages-list',{
 
 var app = new Vue({
     el: '#app',
-    template: '<messages-list :messages="messages" />',
+    template:'<div>' +
+    '<messages-list :messages="messages" />' +
+    '<div v-if="!profile">Необходимо авторизоваться через <a href="/login">Google</a></div>' +
+    '</div>',
     data: {
-        messages: []
+        messages: frontendData.messages,
+        profile: frontendData.profile
+    },
+    created: function() {
+        // messageApi.get().then(result =>
+        // result.json().then(data =>
+        // data.forEach(message => this.messages.push(message))
+        // ))
     }
 });
