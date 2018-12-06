@@ -19,6 +19,12 @@ spring:
         password: q1w2e3
     main:
       allow-bean-definition-overriding: true
+    session:
+      store-type: jdbc # Session store type.
+      jdbc:
+        initialize-schema: always
+        table-name: SPRING_SESSION
+        schema: classpath:session_tables.sql
 
 security:
   oauth2:
